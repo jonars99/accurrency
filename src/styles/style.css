@@ -1,0 +1,35 @@
+.converter, .exchange-page {
+  background: linear-gradient(#364595 0%, #1b3372 100%);
+  color: #252525;
+}
+
+.base-wrapper {
+  background-color: #5156B8;
+  color: #f7f7f7;
+  border-radius: 1rem;
+}
+
+.table-wrapper, thead, tbody {
+  background-color: #5156B8;
+  color: #f7f7f7;
+  border-radius: 1rem;
+}
+
+table {
+  margin-top: 10px;
+}
+
+.converter-block {
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.exchange-block {
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+footer {
+  background-color: #1B3372;
+  color: #f7f7f7;
+}
