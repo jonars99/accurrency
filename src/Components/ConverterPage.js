@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { checkStatus, json, Options } from './utils';
+import $ from 'jquery';
 
 const ConverterPage = () => {
 
@@ -8,6 +9,7 @@ const ConverterPage = () => {
   const [output, setOutput] = useState('');
   const [currencyInput, setCurrencyInput] = useState('GBP');
   const [currencyOutput, setCurrencyOutput] = useState('JPY');
+  const [buttonClick, setButtonClick] = useState(false);
 
   // handlers
 
@@ -17,24 +19,25 @@ const ConverterPage = () => {
       setInput(event.target.value);
       setOutput(event.target.value);
     }
-    setInput(event.target.value);
+    buttonClick ? setOutput(event.target.value) : setInput(event.target.value);
   }
 
-  //input currency from dropdown
-  const handleCurrencyInput = (event) => {
-    if (event.target.value === currencyOutput) {
-      setOutput(input);
+  //handle dropdown currency changes
+  const handleCurrencyChange = (event) => {
+    const id = event.target.id;
+    if (id === 'currencies-in') {
+      setCurrencyInput(event.target.value);
     }
-    setCurrencyInput(event.target.value);
+    else if (id === 'currencies-out') {
+      setCurrencyOutput(event.target.value);
+    }
+
   }
 
-  //output currency from dropdown
-  const handleCurrencyOutput = (event) => {
-    if (event.target.value === currencyInput) {
-      setOutput(input);
-    }
-    setCurrencyOutput(event.target.value);
-  }
+  //button switches
+  const buttonPress = buttonClick ? output : input;
+  const currencyIn = buttonClick ? currencyOutput : currencyInput;
+  const currencyOut = buttonClick ? currencyInput : currencyOutput;
 
   //switch currencies on button click
   const handleButton = () => {
@@ -42,28 +45,28 @@ const ConverterPage = () => {
     var secondDropDown = document.getElementById('currencies-out')
     var firstCurrency = document.getElementById('currencies-in').value;
     var secondCurrency = document.getElementById('currencies-out').value;
-    
+
     firstDropDown.value = secondCurrency;
     secondDropDown.value = firstCurrency;
+    setButtonClick(buttonClick ? false : true);
   }
 
   //fetching data
+
   useEffect(() => {
-    if (input) {
-      if ((input === output) && (currencyInput === currencyOutput)) {
-        return
-      }  
-      else {
-        fetch(`https://altexchangerateapi.herokuapp.com/latest?amount=${input}&from=${currencyInput}&to=${currencyOutput}`)
-        .then(checkStatus)
-        .then(json)
-        .then((data) => {
-          setOutput(data.rates[currencyOutput]);
-        })
-      }
+    if (currencyInput === currencyOutput) {
+      $('#diff-currencies').removeClass('visually-hidden');
+      return null;
     }
     else {
-      return
+      $('#diff-currencies').addClass('visually-hidden');
+      fetch(`https://altexchangerateapi.herokuapp.com/latest?amount=${buttonPress}&from=${currencyIn}&to=${currencyOut}`)
+      .then(checkStatus)
+      .then(json)
+      .then((data) => {
+        buttonClick ? setInput(data.rates[currencyOut]) : setOutput(data.rates[currencyOut]);
+        console.log('in: ' + input, currencyInput + ' and out: ' + output, currencyOutput);
+      })
     }
   })
 
@@ -77,8 +80,8 @@ const ConverterPage = () => {
               {/** input amount of currency one **/}
               <div className="col-5">
                 <p>from</p>
-                <input value={input} onChange={handleInput} className="form-control my-3" type="number" min="1"></input>    
-                <Options handleCurrencyInput={handleCurrencyInput} name='currencies-in' />
+                <input value={buttonClick ? output : input} onChange={handleInput} id="amount-input" className="form-control my-3" type="number" min="1"></input>    
+                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-out' : 'currencies-in'} />
               </div>
 
               {/**swtich currencies button **/}
@@ -89,11 +92,12 @@ const ConverterPage = () => {
               {/** output of conversion **/}
               <div className="col-5">
                 <p>to</p>
-                <p>{output}</p>
-                <Options handleCurrencyOutput={handleCurrencyOutput} name="currencies-out" />
+                <p>{buttonClick ? input : output}</p>
+                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-in' : 'currencies-out'} />
               </div>
 
             </div>
+            <p id="diff-currencies" className="fst-italic visually-hidden">Please choose two <span className="fw-bold">different</span> currencies </p>
           </div>
       </div>
     </div>
