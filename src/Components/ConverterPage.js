@@ -9,6 +9,9 @@ const ConverterPage = () => {
   const [currencyInput, setCurrencyInput] = useState('GBP');
   const [currencyOutput, setCurrencyOutput] = useState('JPY');
 
+  // handlers
+
+  //input amount
   const handleInput = (event) => {
     if (currencyInput === currencyOutput) {
       setInput(event.target.value);
@@ -17,6 +20,7 @@ const ConverterPage = () => {
     setInput(event.target.value);
   }
 
+  //input currency from dropdown
   const handleCurrencyInput = (event) => {
     if (event.target.value === currencyOutput) {
       setOutput(input);
@@ -24,6 +28,7 @@ const ConverterPage = () => {
     setCurrencyInput(event.target.value);
   }
 
+  //output currency from dropdown
   const handleCurrencyOutput = (event) => {
     if (event.target.value === currencyInput) {
       setOutput(input);
@@ -31,6 +36,18 @@ const ConverterPage = () => {
     setCurrencyOutput(event.target.value);
   }
 
+  //switch currencies on button click
+  const handleButton = () => {
+    var firstDropDown = document.getElementById('currencies-in');
+    var secondDropDown = document.getElementById('currencies-out')
+    var firstCurrency = document.getElementById('currencies-in').value;
+    var secondCurrency = document.getElementById('currencies-out').value;
+    
+    firstDropDown.value = secondCurrency;
+    secondDropDown.value = firstCurrency;
+  }
+
+  //fetching data
   useEffect(() => {
     if (input) {
       if ((input === output) && (currencyInput === currencyOutput)) {
@@ -57,16 +74,19 @@ const ConverterPage = () => {
           <div className="col-12">
             <div className="row converter-block p-5">
 
+              {/** input amount of currency one **/}
               <div className="col-5">
                 <p>from</p>
                 <input value={input} onChange={handleInput} className="form-control my-3" type="number" min="1"></input>    
                 <Options handleCurrencyInput={handleCurrencyInput} name='currencies-in' />
               </div>
 
+              {/**swtich currencies button **/}
               <div className="col-2 d-flex justify-content-center align-items-center">
-                <button className="btn btn-warning">switch</button>
+                <button onClick={handleButton} className="btn btn-warning">switch</button>
               </div>
 
+              {/** output of conversion **/}
               <div className="col-5">
                 <p>to</p>
                 <p>{output}</p>
