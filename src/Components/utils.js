@@ -7,13 +7,45 @@ export const checkStatus = (response) => {
 
 export const json = (response) => response.json();
 
+const flags = [
+  '🇦🇺', '🇧🇬', '🇧🇷', '🇨🇦', '🇨🇭', '🇨🇳', '🇨🇿', '🇩🇰', '🇪🇺', '🇬🇧', '🇭🇰', 
+  '🇭🇷', '🇭🇺', '🇮🇩', '🇮🇱', '🇮🇳', '🇮🇸', '🇯🇵', '🇰🇷', '🇲🇽', '🇲🇾', '🇳🇴', 
+  '🇳🇿', '🇵🇭', '🇵🇱', '🇷🇴', '🇷🇺', '🇸🇪', '🇸🇬', '🇹🇭', '🇹🇷', '🇺🇸', '🇿🇦'
+]
+
+export const fetchCurrencyInfo = () => {
+  const currencyInfo = [];
+  var i = 0;
+  fetch('https://altexchangerateapi.herokuapp.com/currencies')
+  .then(checkStatus)
+  .then(json)
+  .then((data) => {
+      for (const curr in data) {
+        currencyInfo.push({
+          flag: flags[i],
+          code: curr,
+          name: data[curr],
+          value: ''
+        })
+        i++;
+      }
+    })
+  .catch((error) => {
+    console.log(error);
+  })
+  return currencyInfo;
+}
+
 export const Options = (props) => {
   let defaultVal;
   if (props.name === "currencies-in") {
-    defaultVal = 'GBP'
+    defaultVal = 'GBP';
   }
   else if (props.name === "currencies-out") {
-    defaultVal = 'JPY'
+    defaultVal = 'JPY';
+  }
+  else {
+    defaultVal = 'GBP';
   }
 
   return(

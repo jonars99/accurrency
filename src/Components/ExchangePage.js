@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { checkStatus, json, Options, fetchCurrencyInfo } from './utils';
 
 const ExchangePage = () => {
+  const currencyInfo = fetchCurrencyInfo();
+  console.log(currencyInfo);
+
   return(
     <div className="container-fluid">
       <div className="row exchange-page p-5">
@@ -10,16 +14,12 @@ const ExchangePage = () => {
             <div className="col-3 base-wrapper">
               <p className="my-3">base</p>
               <input className="form-control my-3" type="number" min="1"></input>
-              <select className="form-select">
-                <option>GBP</option>
-                <option>JPY</option>
-                <option>USD</option>
-                <option>EUR</option>
-              </select>
+              <Options name='exchangeOptions' />
+              <button className="btn btn-light my-3" >Get rates</button>
             </div>
 
             <div className="col-7 table-wrapper">
-            <table class="table table-hover table-borderless table-responsive">
+            <table className="table table-hover table-borderless table-responsive">
               <thead>
                 <tr>
                   <th scope="col">flag</th>
