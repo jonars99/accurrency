@@ -20,11 +20,11 @@ export const fetchCurrencyInfo = () => {
   .then(checkStatus)
   .then(json)
   .then((data) => {
-      for (const curr in data) {
+      for (const currency in data) {
         currencyInfo.push({
           flag: flags[i],
-          code: curr,
-          name: data[curr],
+          code: currency,
+          name: data[currency],
           value: ''
         })
         i++;
@@ -38,10 +38,7 @@ export const fetchCurrencyInfo = () => {
 
 export const Options = (props) => {
   let defaultVal;
-  if (props.name === "currencies-in") {
-    defaultVal = 'GBP';
-  }
-  else if (props.name === "currencies-out") {
+  if (props.name === "currencies-out") {
     defaultVal = 'JPY';
   }
   else {
