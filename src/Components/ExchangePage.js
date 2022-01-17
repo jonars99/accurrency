@@ -6,7 +6,7 @@ const ExchangePage = () => {
   const currencyInfo = fetchCurrencyInfo();
 
   // set states for selected base amount and currency
-  // const [amount, setAmount] = useState('1');
+  const [amount, setAmount] = useState('1');
   const [base, setBase] = useState('GBP');
   const [exchangeRates, setExchangeRates] = useState(currencyInfo);
 
@@ -48,7 +48,7 @@ const ExchangePage = () => {
 
             <div className="col-3 base-wrapper">
               <p className="my-3">base</p>
-              <input className="form-control my-3" type="number" min="1" ></input>
+              <input className="form-control my-3" type="number" min="1" value={amount}></input>
               <Options name='exchangeOptions' handleCurrencyChange={handleBaseChange}/>
               <button className="btn btn-light my-3" onClick={fetchRates} >Get rates</button>
             </div>
