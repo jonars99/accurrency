@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { checkStatus, json, Options } from './utils';
+import { checkStatus, json } from './utils';
+import Options from './Options';
 import $ from 'jquery';
 
 const ConverterPage = () => {
 
-  // states for input/outputs and currency selection
+  // set states for input/outputs and currency selection (default £1 GBP -> JPY)
   const [input, setInput] = useState('1');
   const [output, setOutput] = useState('');
   const [currencyInput, setCurrencyInput] = useState('GBP');
@@ -13,7 +14,7 @@ const ConverterPage = () => {
 
   // handlers
 
-  //input amount
+  //handle input amount
   const handleInput = (event) => {
     if (currencyInput === currencyOutput) {
       setInput(event.target.value);
@@ -65,7 +66,9 @@ const ConverterPage = () => {
       .then(json)
       .then((data) => {
         buttonClick ? setInput(data.rates[currencyOut]) : setOutput(data.rates[currencyOut]);
-        console.log('in: ' + input, currencyInput + ' and out: ' + output, currencyOutput);
+      })
+      .catch((error) => {
+        console.log(error);
       })
     }
   })
