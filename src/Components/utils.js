@@ -1,5 +1,5 @@
 
-// functions for fetching data
+// functions for fetch
 
 export const checkStatus = (response) => {
   if (response.ok) {
@@ -32,7 +32,7 @@ const fetchCurrencies = (callback) => {
   return currencyInfo;
 }
 
-//create array with information for each currency
+//create array with information for each currency mapped from fetched data
 const setCurrencyInfo = (arr, flagData, data) => {
   var i = 0;
   for (const currency in data) {
@@ -47,30 +47,4 @@ const setCurrencyInfo = (arr, flagData, data) => {
   return arr;
 }
 
-export const getCurrencyInfo = () => {
-  const info = fetchCurrencies(setCurrencyInfo);
-  return info;
-}
-
-/* export const fetchCurrencyInfo = () => {
-  const currencyInfo = [];
-  var i = 0;
-  fetch('https://altexchangerateapi.herokuapp.com/currencies')
-  .then(checkStatus)
-  .then(json)
-  .then((data) => {
-      for (const currency in data) {
-        currencyInfo.push({
-          flag: flags[i],
-          code: currency,
-          name: data[currency],
-          value: ''
-        })
-        i++;
-      }
-    })
-  .catch((error) => {
-    console.log(error);
-  })
-  return currencyInfo;
-} */
+export const info = fetchCurrencies(setCurrencyInfo);
