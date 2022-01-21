@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { Nav, Navbar, NavbarBrand } from 'react-bootstrap'
 import ConverterPage from './ConverterPage';
 import ExchangePage from './ExchangePage';
@@ -9,9 +9,7 @@ import '../styles/style.css';
 
 const Routing = () => {
 
-  const NotFound = () => {
-    return <h3>404 Sorry, this page was not found</h3>
-  }
+  const NotFound = <h3>404 Sorry, this page was not found</h3>
 
   return(
     <Router>
@@ -41,12 +39,12 @@ const Routing = () => {
         </Navbar.Collapse>
       </Navbar>
 
-      <Switch>
-        <Route path="/" exact component={ConverterPage} />
-        <Route path="/currency-converter" component={ConverterPage} />
-        <Route path="/exchange-rates" component={ExchangePage} />
-        <Route component={NotFound} />
-      </Switch>
+      <Routes>
+        <Route path="/" exact element={<ConverterPage/>} />
+        <Route path="/currency-converter" element={<ConverterPage/>} />
+        <Route path="/exchange-rates" element={<ExchangePage/>} />
+        <Route path="/*" element={NotFound} />
+      </Routes>
       <footer className="container-fluid">
         <div className="row mx-4 pt-3">
           <div className="col-12 d-flex justify-content-between">
