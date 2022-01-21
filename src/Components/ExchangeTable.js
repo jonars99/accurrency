@@ -4,18 +4,16 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
 
   // map each object (currency) from exchangeRates into a row in the table
   
+
+  console.log(base, amount)
   // set base currency to the top as table header
-  const tableTop = exchangeRates.map((item, i) => {
-    if (item.code === base) {
-      return(
-        <tr key={i}>
-          <th>{item.flag}</th>
-          <th>{item.code}</th>
-          <th>{amount}</th>
-        </tr>
-      )
-    }
-  })
+  const tableTop = (
+    <tr>
+      <th>-</th>
+      <th>{base}</th>
+      <th>{amount}</th>
+    </tr>
+  )
 
   // rest of exchange rates
   const tableData = exchangeRates.map((item, i) => {
@@ -24,7 +22,7 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
         <tr key={i}>
           <td>{item.flag}</td>
           <td><span className="fw-bold">{item.code}</span> - {item.name}</td>
-          <td>{item.value}</td>
+          <td>{item.value * amount}</td>
         </tr>
       )
     }
