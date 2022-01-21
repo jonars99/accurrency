@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Nav, Navbar, NavbarBrand } from 'react-bootstrap'
 import ConverterPage from './ConverterPage';
 import ExchangePage from './ExchangePage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import '../styles/style.css';
 
 const Routing = () => {
@@ -12,15 +15,32 @@ const Routing = () => {
 
   return(
     <Router>
-      <nav className="navbar">
-        <div className="container-fluid">
-          <Link to="/" className="navbar-brand" role="navigation">accurrency</Link>
-          <div className="d-flex">
-            <Link to="/currency-converter" className="nav-link" role="navigation">converter</Link>
-            <Link to="/exchange-rates" className="nav-link" role="navigation">exchange rates</Link>
-          </div>
-        </div>
-      </nav>
+
+      <Navbar collapseOnSelect expand="lg" className="align-items-center m-2">
+        <NavbarBrand>
+          <Nav.Link as={Link} to="/">
+            <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
+            <span className="brand fw-bold m-2 p-1" >accurrency</span>
+          </Nav.Link>
+        </NavbarBrand>
+        <Navbar.Toggle id="navbar-toggler" className="mt-3 me-3"/>
+        <Navbar.Collapse className="justify-content-end">
+          <Nav className="m-3">
+            
+            <Nav.Item className="ms-auto">
+              <Nav.Link eventKey="1" as={Link} to="/currency-converter">converter</Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item className="ms-auto">
+              <Nav.Link eventKey="2" as={Link} to="/exchange-rates">exchange rates</Nav.Link>
+            </Nav.Item>
+
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+
       <Switch>
         <Route path="/" exact component={ConverterPage} />
         <Route path="/currency-converter" component={ConverterPage} />
@@ -31,7 +51,13 @@ const Routing = () => {
         <div className="row mx-4 pt-3">
           <div className="col-12 d-flex justify-content-between">
             <p>built by JR</p>
-            <p>accurrency</p>
+            <div>
+              <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
+              <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
+              <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
+              <span className="brand m-2 p-1 fw-bold">accurrency</span>
+            </div>
+
             <div className="d-flex">
               <p className="mx-3">LinkedIn</p>
               <p>GitHub</p>

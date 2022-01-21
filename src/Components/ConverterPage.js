@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { checkStatus, json } from './utils';
 import Options from './Options';
 import $ from 'jquery';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ConverterPage = () => {
 
@@ -84,19 +86,22 @@ const ConverterPage = () => {
               <div className="col-5">
                 <p>from</p>
                 <input value={buttonClick ? output : input} onChange={handleInput} id="amount-input" className="form-control my-3" type="number" min="1"></input>    
-                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-out' : 'currencies-in'} />
+                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-out' : 'currencies-in'} defaultVal="GBP" />
               </div>
 
               {/**swtich currencies button **/}
               <div className="col-2 d-flex justify-content-center align-items-center">
-                <button onClick={handleButton} className="btn btn-warning">switch</button>
+                <button onClick={handleButton} className="btn btn-warning rounded-circle"> 
+                  <FontAwesomeIcon icon={faArrowRight} className="d-flex ms-1 switch-icon" ></FontAwesomeIcon>
+                  <FontAwesomeIcon icon={faArrowLeft} className="d-flex switch-icon" ></FontAwesomeIcon>
+                </button>
               </div>
 
               {/** output of conversion **/}
               <div className="col-5">
                 <p>to</p>
                 <p>{buttonClick ? input : output}</p>
-                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-in' : 'currencies-out'} />
+                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-in' : 'currencies-out'} defaultVal="JPY" />
               </div>
 
             </div>
