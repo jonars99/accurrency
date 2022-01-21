@@ -4,6 +4,7 @@ import { info } from './utils';
 const ExchangeTable = ({ exchangeRates, base, amount }) => {
 
   // map each object (currency) from exchangeRates into a row in the table
+<<<<<<< HEAD
 
   // set base currency to the top as table header
   let baseFlag;
@@ -21,6 +22,16 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
     <tr key={i}>
       <th>{baseFlag}</th>
       <th>{base} - {baseName}</th>
+=======
+  
+
+  console.log(base, amount)
+  // set base currency to the top as table header
+  const tableTop = (
+    <tr>
+      <th>-</th>
+      <th>{base}</th>
+>>>>>>> d3606f369386cdea6e877db5883f384245b7e9af
       <th>{amount}</th>
     </tr>
   )
@@ -29,6 +40,7 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
   const restOfRates = info.filter((item) => item.code !== base);
 
   const tableData = exchangeRates.map((item, i) => {
+<<<<<<< HEAD
     return(
       <tr key={i}>
         <td><span role="img" aria-label="flag emoji of currency country">{restOfRates[i].flag}</span></td>
@@ -36,6 +48,17 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
         <td>{(item.value * amount).toFixed(2)}</td>
       </tr>
     )    
+=======
+    if (item.code !== base) {
+      return(
+        <tr key={i}>
+          <td>{item.flag}</td>
+          <td><span className="fw-bold">{item.code}</span> - {item.name}</td>
+          <td>{item.value * amount}</td>
+        </tr>
+      )
+    }
+>>>>>>> d3606f369386cdea6e877db5883f384245b7e9af
   });
 
   return(
