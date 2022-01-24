@@ -1,4 +1,7 @@
+
+
 /** shared styles **/
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300&display=swap');
 
@@ -11,7 +14,7 @@
   letter-spacing: 1px;
 }
 
-.converter, .exchange-page {
+#converter, .exchange-page {
   background: linear-gradient(#364595 0%, #1b3372 100%);
   color: #252525;
 }
@@ -21,7 +24,9 @@ h1 {
   letter-spacing: 2px;
 }
 
+
 /** nav bar **/
+
 
 .coin-icon {
   color: #FFD30E;
@@ -38,6 +43,10 @@ h1 {
   color: #f59a12;
   height: 40px;
   line-height: 36px;
+}
+
+#nav-links .brand, #nav-links .coin-icon {
+  font-size: 1.5rem;
 }
 
 #navbar-toggler {
@@ -60,14 +69,26 @@ h1 {
   transition: ease-in-out;
 }
 
+
 /** converter page **/
+
 
 .converter-block {
   background-color: #fff;
   border-radius: 1rem;
 }
 
-.number-input {
+.number-input[type="number"] {
+  text-align: center;
+  border: none;
+  border-bottom: 1px dashed #252525;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#converter select {
+  background-color: #f3f3f3;
+  border: none;
   text-align: center;
 }
 
@@ -75,7 +96,17 @@ h1 {
   color: #1b3372;
 }
 
+.output-number {
+  padding: .375rem .75rem;
+}
+
+#diff-currencies {
+  color: #f7f7f7;
+}
+
+
 /** exchange page **/
+
 
 .base-wrapper {
   background-color: #5156B8;
@@ -98,20 +129,24 @@ table {
   border-radius: 1rem;
 }
 
+
 /** footer **/
+
 
 footer {
   background-color: #1B3372;
   color: #f7f7f7;
 }
 
+
 /** responsive design **/
+
 
 /* bootstrap xs and sm */
 @media all and (max-width: 768px) {
 
-  #nav-links .brand, #nav-links .coin-icon {
-    font-size: 1.5rem;
+  .switch-button {
+    transform: rotate(90deg);
   }
   
 }
@@ -133,15 +168,33 @@ footer {
 
 }
 
+/* bootstrap xl */
+@media all and (min-width: 1200px) {
+  
+  .converter-block {
+    background: transparent;
+  }
 
+  #input-block, #output-block {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 3rem;
+    width: 45%;
+  }
 
+  #converter .switch-button {
+    font-size: 1.5rem;
+    width: 4rem;
+  }
 
+  .switch-btn-col {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+  };
 
-
-
-
-
-
-
-
-
+}

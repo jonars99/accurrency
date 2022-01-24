@@ -75,38 +75,43 @@ const ConverterPage = () => {
     }
   })
 
+  // className order = bootstrap classes, my custom classes, margin/padding xs, m/p md, m/p lg 
   return(
     <div className="container-fluid">
-      <div className="row p-5 converter">
+      <div id="converter" className="row px-2 pb-5 px-md-5">
+        
+        <div className="col-12 d-flex justify-content-center my-3 mx-0 my-md-4 ">
+          <h1 className="fw-bold p-2">currency converter</h1>
+        </div>
 
-          <div className="col-12">
-            <div className="row converter-block p-5">
+        <div className="col-12 p-0">
+          <div className="row flex-column align-items-center converter-block m-4 my-1 px-3 py-5 px-sm-5 flex-md-row m-md-0 px-md-3 px-lg-5 justify-content-xl-evenly p-xl-0">
 
-              {/** input amount of currency one **/}
-              <div className="col-5">
-                <p>from</p>
-                <input value={buttonClick ? output : input} onChange={handleInput} id="amount-input" className="form-control my-3" type="number" min="1"></input>    
-                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-out' : 'currencies-in'} defaultVal="GBP" />
-              </div>
-
-              {/**swtich currencies button **/}
-              <div className="col-2 d-flex justify-content-center align-items-center">
-                <button onClick={handleButton} className="btn btn-warning rounded-circle"> 
-                  <FontAwesomeIcon icon={faArrowRight} className="d-flex ms-1 switch-icon" ></FontAwesomeIcon>
-                  <FontAwesomeIcon icon={faArrowLeft} className="d-flex switch-icon" ></FontAwesomeIcon>
-                </button>
-              </div>
-
-              {/** output of conversion **/}
-              <div className="col-5">
-                <p>to</p>
-                <p>{buttonClick ? input : output}</p>
-                <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-in' : 'currencies-out'} defaultVal="JPY" />
-              </div>
-
+            {/** input amount of currency one **/}
+            <div id="input-block" className="col-12 col-md-5 d-flex flex-column align-items-center ">
+              <p className="fw-light">from</p>
+              <input value={buttonClick ? output : input} onChange={handleInput} id="amount-input" className="form-control number-input mb-3 ps-4 my-md-3" type="number" min="1"></input>    
+              <Options id="options" handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-out' : 'currencies-in'} defaultVal="GBP" />
             </div>
-            <p id="diff-currencies" className="fst-italic visually-hidden">Please choose two <span className="fw-bold">different</span> currencies </p>
+
+            {/**swtich currencies button **/}
+            <div className="col-2 d-flex justify-content-center align-items-center switch-btn-col my-2 my-md-0">
+              <button onClick={handleButton} className="btn btn-lg btn-warning rounded-circle switch-button"> 
+                <FontAwesomeIcon icon={faArrowRight} className="d-flex switch-icon ms-1 ms-xl-2" ></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faArrowLeft} className="d-flex switch-icon ms-xl-1" ></FontAwesomeIcon>
+              </button>
+            </div>
+
+            {/** output of conversion **/}
+            <div id="output-block" className="col-12 col-md-5 d-flex flex-column align-items-center ">
+              <p className="fw-light">to</p>
+              <p className="output-number my-md-3">{buttonClick ? input : output}</p>
+              <Options handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-in' : 'currencies-out'} defaultVal="JPY" />
+            </div>
+
           </div>
+          <p id="diff-currencies" className="fst-italic visually-hidden ms-sm-4 ms-md-2 ms-xl-5">Please choose two <span className="fw-bold">different</span> currencies </p>
+        </div>
       </div>
     </div>
   )
