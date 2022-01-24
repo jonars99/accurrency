@@ -14,29 +14,31 @@ const Routing = () => {
   return(
     <Router>
 
-      <Navbar collapseOnSelect expand="lg" className="align-items-center m-2">
-        <NavbarBrand>
-          <Nav.Link as={Link} to="/">
+      <Navbar collapseOnSelect expand="lg" className="nav-bar mx-2 mx-sm-4 pb-lg-0">
+        <NavbarBrand className="mb-2 pe-0 me-0">
+          <Nav.Link as={Link} to="/" id="nav-links" className="align-items-center d-flex">
             <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
             <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
             <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
-            <span className="brand fw-bold m-2 p-1" >accurrency</span>
+            <span className="brand fw-bold ms-2 ps-1">accurrency</span>
           </Nav.Link>
         </NavbarBrand>
-        <Navbar.Toggle id="navbar-toggler" className="mt-3 me-3"/>
-        <Navbar.Collapse className="justify-content-end">
-          <Nav className="m-3">
+
+        <Navbar.Toggle id="navbar-toggler" className="mt-2 me-3"/>
+        <Navbar.Collapse className="justify-content-end me-lg-3 navbar-dark">
+          <Nav className="m-3 m-lg-0 mt-lg-2" defaultActiveKey={1}>
             
-            <Nav.Item className="ms-auto">
-              <Nav.Link eventKey="1" as={Link} to="/currency-converter">converter</Nav.Link>
+            <Nav.Item id="converter-tab" className="ms-auto mb-2 mb-lg-0" >
+              <Nav.Link eventKey="1" as={Link} to="/currency-converter" className="m-0 p-0 mx-lg-3 tab" >converter</Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="ms-auto">
-              <Nav.Link eventKey="2" as={Link} to="/exchange-rates">exchange rates</Nav.Link>
+            <Nav.Item id="exchange-tab" className="ms-auto">
+              <Nav.Link eventKey="2" as={Link} to="/exchange-rates" className="m-0 p-0 tab">exchange rates</Nav.Link>
             </Nav.Item>
 
           </Nav>
         </Navbar.Collapse>
+
       </Navbar>
 
       <Routes>
@@ -46,21 +48,21 @@ const Routing = () => {
         <Route path="/*" element={NotFound} />
       </Routes>
       <footer className="container-fluid">
-        <div className="row mx-4 pt-3">
+        <div className="row pt-3">
           <div className="col-12 d-flex justify-content-between">
             <p>built by JR</p>
-            <div>
+            <div className="d-flex align-items-center">
               <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
               <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
               <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
-              <span className="brand m-2 p-1 fw-bold">accurrency</span>
+              <span className="brand ms-2 ps-1 fw-bold">accurrency</span>
             </div>
 
             <div className="d-flex">
-              <p className="mx-3">LinkedIn</p>
+              <p className="ms-3">LinkedIn</p>
               <p>GitHub</p>
             </div>
-            </div>
+          </div>
         </div>
       </footer>
     </Router>

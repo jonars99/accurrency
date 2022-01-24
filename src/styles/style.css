@@ -2,23 +2,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300&display=swap');
 
-.bleh {
+.foo {
   border: 2px solid pink;
 }
 
-.bar-icon {
-  border: 2px solid pink;
-  color: black;
-}
-
-body {
+.container-fluid, .nav-bar {
   font-family: 'Roboto', sans-serif;
-  letter-spacing: .8px;
+  letter-spacing: 1px;
 }
 
 .converter, .exchange-page {
   background: linear-gradient(#364595 0%, #1b3372 100%);
   color: #252525;
+}
+
+h1 {
+  color: #f7f7f7;
+  letter-spacing: 2px;
 }
 
 /** nav bar **/
@@ -35,23 +35,29 @@ body {
 
 .brand {
   letter-spacing: 1.2px;
-  color: #FFAD0A;
+  color: #f59a12;
+  height: 40px;
+  line-height: 36px;
 }
 
 #navbar-toggler {
   color: #f7f7f7;
-  background-color: green;
+  background-color: none;
+  border: none;
+}
+
+#navbar-toggler span {
+  background-image: url('./images/menu-icon.png');
+  width: 2em;
 }
 
 .nav-link {
   margin-bottom: -30px;
 }
 
-.nav-link-active {
-  background-color: #364595;
-  color: #f7f7f7;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+#exchange-tab .nav-link, #converter-tab .nav-link {
+  color: #252525;
+  transition: ease-in-out;
 }
 
 /** converter page **/
@@ -59,6 +65,10 @@ body {
 .converter-block {
   background-color: #fff;
   border-radius: 1rem;
+}
+
+.number-input {
+  text-align: center;
 }
 
 .switch-icon {
@@ -97,6 +107,31 @@ footer {
 
 /** responsive design **/
 
+/* bootstrap xs and sm */
+@media all and (max-width: 768px) {
+
+  #nav-links .brand, #nav-links .coin-icon {
+    font-size: 1.5rem;
+  }
+  
+}
+
+/* bootstrap large */
+@media all and (min-width: 992px) {
+
+  .tab {
+    border: 15px solid transparent;
+  }
+
+  #converter-tab .active, #exchange-tab .active {
+    background-color: #364595;
+    border: 15px solid #364595;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    color: #f7f7f7;
+  }
+
+}
 
 
 
