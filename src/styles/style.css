@@ -5,10 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300&display=swap');
 
-.bleh {
-  border: 2px solid pink;
-}
-
 .container-fluid, .nav-bar {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1px;
@@ -45,7 +41,7 @@ h1 {
   line-height: 36px;
 }
 
-#nav-links .brand, #nav-links .coin-icon {
+#nav-links .brand, #nav-links .coin-icon, .footer-brand {
   font-size: 1.5rem;
 }
 
@@ -164,9 +160,20 @@ h1 {
 /** footer **/
 
 
-footer {
+#footer {
   background-color: #1B3372;
   color: #f7f7f7;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #f7f7f7;
+}
+
+#footer a:hover {
+  color: #FFBC36;
 }
 
 
@@ -230,6 +237,15 @@ footer {
     top: 36.5%;
   }
 
+  .footer-brand {
+    font-size: 1.1rem;
+  }
+
+  #footer .brand {
+    height: 40px;
+    line-height: 25px;
+  }
+
 }
 
 /* bootstrap large */
@@ -246,6 +262,15 @@ footer {
     border-top-left-radius: 1rem;
     border-bottom-right-radius: none;
     color: #f7f7f7;
+  }
+
+  #footer a {
+    font-size: 20px;
+  }
+
+  #footer .brand {
+    height: 40px;
+    line-height: 25px;
   }
 
 }
@@ -296,6 +321,10 @@ footer {
 
   #exchange-page .table-wrapper {
     margin-top: 160px;
+  }
+
+  .footer-brand {
+    font-size: 1.3rem;
   }
 
 }
