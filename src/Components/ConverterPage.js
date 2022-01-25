@@ -78,7 +78,7 @@ const ConverterPage = () => {
   // className order = bootstrap classes, my custom classes, margin/padding xs, m/p md, m/p lg 
   return(
     <div className="container-fluid">
-      <div id="converter" className="row px-2 pb-5 px-md-5">
+      <div id="converter-page" className="row px-2 pb-5 px-md-5">
         
         <div className="col-12 d-flex justify-content-center my-3 mx-0 my-md-4 ">
           <h1 className="fw-bold p-2">currency converter</h1>
@@ -90,7 +90,7 @@ const ConverterPage = () => {
             {/** input amount of currency one **/}
             <div id="input-block" className="col-12 col-md-5 d-flex flex-column align-items-center ">
               <p className="fw-light">from</p>
-              <input value={buttonClick ? output : input} onChange={handleInput} id="amount-input" className="form-control number-input mb-3 ps-4 my-md-3" type="number" min="1"></input>    
+              <input value={buttonClick ? output : input} onChange={handleInput} id="amount-input" className="form-control text-center number-input mb-3 ps-4 my-md-3" type="number" min="1"></input>    
               <Options id="options" handleCurrencyChange={handleCurrencyChange} name={buttonClick ? 'currencies-out' : 'currencies-in'} defaultVal="GBP" />
             </div>
 

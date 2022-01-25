@@ -8,7 +8,7 @@ const Options = (props) => {
   // default exchange base currency GBP
 
   return(
-    <select className="form-select" id={props.name} name={props.name} onChange={props.handleCurrencyChange} value={props.value} defaultValue={props.defaultVal}>              
+    <select className="form-select ps-xl-3" id={props.name} name={props.name} onChange={props.handleCurrencyChange} value={props.value} defaultValue={props.defaultVal}>              
       <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
       <option value="BGN">🇧🇬 BGN - Bulgarian Lev</option>
       <option value="BRL">🇧🇷 BRL - Brazilian Real</option>

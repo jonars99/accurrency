@@ -47,7 +47,7 @@ const Routing = () => {
         <Route path="/exchange-rates" element={<ExchangePage/>} />
         <Route path="/*" element={NotFound} />
       </Routes>
-      <footer className="container-fluid">
+      <footer id="footer" className="container-fluid">
         <div className="row pt-3">
           <div className="col-12 d-flex justify-content-between">
             <p>built by JR</p>

@@ -5,7 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300&display=swap');
 
-.foo {
+.bleh {
   border: 2px solid pink;
 }
 
@@ -14,7 +14,7 @@
   letter-spacing: 1px;
 }
 
-#converter, .exchange-page {
+#converter-page, #exchange-page {
   background: linear-gradient(#364595 0%, #1b3372 100%);
   color: #252525;
 }
@@ -79,17 +79,17 @@ h1 {
 }
 
 .number-input[type="number"] {
-  text-align: center;
   border: none;
   border-bottom: 1px dashed #252525;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-#converter select {
+#converter-page select {
   background-color: #f3f3f3;
   border: none;
   text-align: center;
+  border-radius: .5rem;
 }
 
 .switch-icon {
@@ -108,25 +108,56 @@ h1 {
 /** exchange page **/
 
 
-.base-wrapper {
-  background-color: #5156B8;
-  color: #f7f7f7;
-  border-radius: 1rem;
-}
-
-.table-wrapper, thead, tbody {
-  background-color: #5156B8;
-  color: #f7f7f7;
-  border-radius: 1rem;
-}
-
-table {
-  margin-top: 10px;
-}
-
-.exchange-block {
+.input-border {
   background-color: #fff;
+  border-radius: .5rem;
+}
+
+.base-wrapper, .table-wrapper, thead, tbody {
   border-radius: 1rem;
+  height: max-content;
+  color: #f7f7f7;
+}
+
+#exchange-page select {
+  border-radius: .5rem;
+}
+
+/* exchange table */
+
+#exchange-table .heading-flag, #exchange-table .heading-amount, #exchange-table .heading-base {
+  background-color: #f7f7f7;
+}
+
+#exchange-table th {
+  color: #252525;
+  font-size: 18px;
+}
+
+#exchange-table .heading-flag {
+  border-top-left-radius: .6rem;
+  border-bottom-left-radius: .6rem;
+  box-shadow: -2px 0px 0 2px #FFD30E;
+}
+
+#exchange-table .heading-base {
+  box-shadow: 2px 0px 0 2px #FFD30E;
+}
+
+#exchange-table .heading-amount {
+  border-top-right-radius: .6rem;
+  border-bottom-right-radius: .6rem;
+  box-shadow: 2px 0px 0 2px #FFD30E;
+}
+
+#exchange-table tbody, #exchange-table thead, #exchange-table th {
+  border: none;
+  --bs-table-hover-color: #FFBC36;
+}
+
+#exchange-table td {
+  font-size: 30px;
+  border: none;
 }
 
 
@@ -148,7 +179,57 @@ footer {
   .switch-button {
     transform: rotate(90deg);
   }
+
+  .exchange-block, .base-wrapper, .table-wrapper, thead, tbody {
+    background-color: inherit;
+  }
+
+  #exchange-table td {
+    border: none;
+    font-size: 17px;
+    font-weight: 300;
+  }
   
+}
+
+/* bootstrap xs, sm, md */
+@media all and (max-width: 992px) {
+
+  #converter-tab .active, #exchange-tab .active {
+    background-color: #364595;
+    color: #f7f7f7;
+    border: 10px solid #364595;
+    border-radius: .5rem;
+  }
+
+}
+
+/* bootstrap md+ */
+@media all and (min-width: 768px) and (max-width: 1200px) {
+
+  #exchange-table td, #exchange-table th {
+    font-size: 20px;
+  }
+
+  .exchange-block {
+    background-color: #fff;
+    border-radius: 1rem;
+  }
+
+  .base-wrapper, .table-wrapper, thead, tbody {
+    background-color: #5156B8;
+  }
+
+  .exchange-block {
+    position: relative;
+  }
+
+  .base-wrapper {
+    position: fixed;
+    left: 9vw;
+    top: 36.5%;
+  }
+
 }
 
 /* bootstrap large */
@@ -163,6 +244,7 @@ footer {
     border: 15px solid #364595;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
+    border-bottom-right-radius: none;
     color: #f7f7f7;
   }
 
@@ -182,7 +264,7 @@ footer {
     width: 45%;
   }
 
-  #converter .switch-button {
+  #converter-page .switch-button {
     font-size: 1.5rem;
     width: 4rem;
   }
@@ -195,6 +277,25 @@ footer {
     right: 0;
     text-align: center;
     z-index: 1;
-  };
+  }
+
+  .base-wrapper {
+    position: fixed;
+  }
+
+  .base-block {
+    background-color: #f7f7f7;
+    border-radius: .5rem;
+    border: 4px solid #FFD30E;
+  }
+
+  #exchange-page select {
+    border: none;
+    font-size: 30px;
+  }
+
+  #exchange-page .table-wrapper {
+    margin-top: 160px;
+  }
 
 }

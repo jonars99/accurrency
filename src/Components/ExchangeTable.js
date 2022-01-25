@@ -19,9 +19,9 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
 
   const tableTop = (
     <tr key={i}>
-      <th>{baseFlag}</th>
-      <th>{base} - {baseName}</th>
-      <th>{amount}</th>
+      <th className="heading-flag">{baseFlag}</th>
+      <th className="heading-base">{base} - {baseName}</th>
+      <th className="heading-amount">{amount}</th>
     </tr>
   )
 
@@ -33,18 +33,18 @@ const ExchangeTable = ({ exchangeRates, base, amount }) => {
       <tr key={i}>
         <td><span role="img" aria-label="flag emoji of currency country">{restOfRates[i].flag}</span></td>
         <td>{item.code} - {restOfRates[i].currencyName}</td>
-        <td>{(item.value * amount).toFixed(2)}</td>
+        <td className="text-xl-center">{(item.value * amount).toFixed(2)}</td>
       </tr>
     )    
   });
 
   return(
-    <table className="table table-hover table-responsive">
-      <thead>
-        { tableTop }
+    <table id="exchange-table" className="table table-hover">
+      <thead className="d-xl-none">
+        {tableTop}
       </thead>
       <tbody>
-        { tableData }
+        {tableData}
       </tbody>
     </table>
 
