@@ -51,7 +51,7 @@ const Routing = () => {
         <div className="row py-3 mx-xl-4 px-xl-5">
           <div className="col-12 d-flex flex-column flex-md-row justify-content-evenly justify-content-md-between px-md-5 px-xl-0">
 
-            <a href="/" className="order-2 order-md-1 ms-3 my-2 ms-md-0">built by JR</a>
+            <a href="https://personal-portfolio-jr.netlify.app/" target="_blank" className="order-2 order-md-1 ms-3 my-2 ms-md-0">built by JR</a>
 
             <div className="d-flex align-self-center footer-brand order-1 order-md-2 pb-3">
               <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
