@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { checkStatus, json } from './utils';
 import Options from './Options';
 import $ from 'jquery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import ConverterChart from './ConverterChart';
 
 const ConverterPage = () => {
 
@@ -112,6 +113,11 @@ const ConverterPage = () => {
           </div>
           <p id="diff-currencies" className="fst-italic visually-hidden ms-sm-4 ms-md-2 ms-xl-5">Please choose two <span className="fw-bold">different</span> currencies </p>
         </div>
+
+        <div className="my-5">
+          <ConverterChart currencyInput={currencyInput} currencyOutput={currencyOutput} redraw="true" />
+        </div>
+
       </div>
     </div>
   )
