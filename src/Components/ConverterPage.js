@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { checkStatus, json } from './utils';
 import Options from './Options';
 import $ from 'jquery';
@@ -114,8 +114,8 @@ const ConverterPage = () => {
           <p id="diff-currencies" className="fst-italic visually-hidden ms-sm-4 ms-md-2 ms-xl-5">Please choose two <span className="fw-bold">different</span> currencies </p>
         </div>
 
-        <div className="my-5">
-          <ConverterChart currencyInput={currencyInput} currencyOutput={currencyOutput} redraw="true" />
+        <div className="mt-4 px-xl-4">
+          <ConverterChart currencyInput={currencyInput} currencyOutput={currencyOutput} buttonClick={buttonClick} redraw="true" />
         </div>
 
       </div>

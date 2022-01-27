@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { checkStatus, json } from './utils';
 
@@ -8,10 +8,11 @@ ChartJS.register(
   LinearScale,
   LineElement,
   PointElement,
-  Title
+  Title,
+  Tooltip
 )
 
-const ConverterChart = ( {currencyInput, currencyOutput} ) => {
+const ConverterChart = ( {currencyInput, currencyOutput, buttonClick} ) => {
 
   const [chartLabels, setChartLabels] = useState([]);
   const [chartData, setChartData] = useState([]);
@@ -29,7 +30,7 @@ const ConverterChart = ( {currencyInput, currencyOutput} ) => {
           throw new Error(data.error);
         }
         setChartLabels(Object.keys(data.rates));
-        setChartData(Object.values(data.rates).map(rate => rate[currencyOutput]));
+        setChartData(Object.values(data.rates).map(rate => rate[quoteCurrency]));
       })
     }
 
@@ -38,11 +39,12 @@ const ConverterChart = ( {currencyInput, currencyOutput} ) => {
   const data = {
     labels: chartLabels,
     datasets: [{
-      label: 'Currency Rates in the last 30 days',
+      label: buttonClick ? currencyInput : currencyOutput,
       data: chartData,
       fill: false,
       borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
+      tension: 0.1,
+      backgroundColor: 'rgb(75, 192, 192)'
     }]
   };
 
@@ -56,17 +58,18 @@ const ConverterChart = ( {currencyInput, currencyOutput} ) => {
     plugins: {
       title: {
         display: true,
-        text: currencyInput + '/' + currencyOutput,
-      }
-    }
+        text: buttonClick ? currencyOutput + '/' + currencyInput : currencyInput + '/' + currencyOutput,
+        color: '#252525',
+      },
+    },
   };
 
   useEffect(() => {
-    getHistoricalRates(currencyInput, currencyOutput);
-  }, [currencyInput, currencyOutput]);
+    buttonClick ? getHistoricalRates(currencyOutput, currencyInput) : getHistoricalRates(currencyInput, currencyOutput);
+  }, [currencyInput, currencyOutput, buttonClick]);
 
   return (
-    <div>
+    <div className="chart p-sm-2 p-xl-4">
       <Line
       data={data}
       options={options} />
