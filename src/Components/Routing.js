@@ -5,6 +5,8 @@ import ConverterPage from './ConverterPage';
 import ExchangePage from './ExchangePage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import logo from '../styles/images/favicon.ico';
 import '../styles/style.css';
 
 const Routing = () => {
@@ -48,10 +50,12 @@ const Routing = () => {
         <Route path="/*" element={NotFound} />
       </Routes>
       <footer id="footer" className="container-fluid">
-        <div className="row py-3 mx-xl-4 px-xl-5">
+        <div className="row py-3 mx-xl-4 px-xl-4">
           <div className="col-12 d-flex flex-column flex-md-row justify-content-evenly justify-content-md-between px-md-5 px-xl-0">
 
-            <a href="https://personal-portfolio-jr.netlify.app/" target="_blank" className="order-2 order-md-1 ms-3 my-2 ms-md-0">built by JR</a>
+            <a href="https://www.joannaredihough.com" target="_blank" rel="noreferrer noopener" className="order-2 order-md-1 ms-2 my-2">
+              <img src={logo} alt="jr logo" width="30"></img> built by Joanna
+            </a>
 
             <div className="d-flex align-self-center footer-brand order-1 order-md-2 pb-3">
               <FontAwesomeIcon icon={faCircle} className="coin-icon"></FontAwesomeIcon>
@@ -60,9 +64,13 @@ const Routing = () => {
               <span className="brand fw-bold ms-2 ps-1">accurrency</span>
             </div>
 
-            <div className="d-flex order-3 my-2">
-              <a href="/" className="ms-3">LinkedIn</a>
-              <a href="https://github.com/jonars99" target="_blank" className="ms-3">GitHub</a>
+            <div className="d-flex order-3 my-2 me-3">
+              <a href="https://www.linkedin.com/in/joanna-redihough-profile/" target="_blank" className="ms-3">
+                <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
+              </a>
+              <a href="https://github.com/jonars99" target="_blank" className="ms-3">
+                <FontAwesomeIcon icon={faGithubAlt}></FontAwesomeIcon>
+              </a>
             </div>
 
           </div>
