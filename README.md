@@ -1,4 +1,5 @@
-# Currency Converter and Exchange Rates Web App
+# Accurrency
+### An currency converter and exchange rates web app
 
 Check it out -> [accurrency](https://still-fjord-97974.herokuapp.com/currency-converter)  
 
