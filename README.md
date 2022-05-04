@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+# Currency Converter and Exchange Rates Web App
+
+Check it out -> [accurrency](https://still-fjord-97974.herokuapp.com/currency-converter)  
+
+Currency and exchange rate data provided via open source API -> [FrankfurterAPI documentation](https://www.frankfurter.app/docs/)  
+
+Chart created using open source JS library Chart.js -> [github](https://github.com/chartjs/Chart.js), [documentation](https://www.chartjs.org/docs/latest/)
+
+## Features
+
+* Converter for a pair of currencies
+* User can edit amounts being converted
+* User can **swap** the currency pair
+* Chart displaying histroical prices for currency pair
+* Exchange rates for a **base** currency
+* User can change base currency
+
+![screenshot of accurrency site](./accurrency-project.png "screenshot of accurrency site")
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
