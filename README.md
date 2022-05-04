@@ -1,11 +1,11 @@
 # Accurrency
-### An currency converter and exchange rates web app
+### A currency converter and exchange rates web app
 
 Check it out -> [accurrency](https://still-fjord-97974.herokuapp.com/currency-converter)  
 
-Currency and exchange rate data provided via open source API -> [FrankfurterAPI documentation](https://www.frankfurter.app/docs/)  
+Currency and exchange rate data provided via open source **FrankfurterAPI** -> [documentation](https://www.frankfurter.app/docs/)  
 
-Chart created using open source JS library Chart.js -> [github](https://github.com/chartjs/Chart.js), [documentation](https://www.chartjs.org/docs/latest/)
+Chart created using open source JS library **Chart.js** -> [github](https://github.com/chartjs/Chart.js), [documentation](https://www.chartjs.org/docs/latest/)
 
 ## Features
 
@@ -15,10 +15,10 @@ Chart created using open source JS library Chart.js -> [github](https://github.c
 * Chart displaying histroical prices for currency pair
 * Exchange rates for a **base** currency
 * User can change base currency
+* **Responsive design**
+* Wireframe designed by me in [Figma](https://www.figma.com/)  
 
 ![screenshot of accurrency site](./accurrency-project.png "screenshot of accurrency site")
-
-
 
 ## Getting Started with Create React App
 
