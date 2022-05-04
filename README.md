@@ -10,13 +10,14 @@ Chart created using open source JS library **Chart.js** -> [github](https://gith
 ## Features
 
 * Converter for a pair of currencies
-* User can edit amounts being converted
 * User can **swap** the currency pair
-* Chart displaying histroical prices for currency pair
+* Chart displaying historical prices for currency pair
 * Exchange rates for a **base** currency
 * User can change base currency
 * **Responsive design**
 * Wireframe designed by me in [Figma](https://www.figma.com/)  
+* Deployed on **Heroku**  
+
 
 ![screenshot of accurrency site](./accurrency-project.png "screenshot of accurrency site")
 
