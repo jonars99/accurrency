@@ -22,7 +22,7 @@ const ConverterChart = ( {currencyInput, currencyOutput, buttonClick} ) => {
     const startDate = new Date((new Date).getTime() - (30 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0];
 
     if (currencyInput !== currencyOutput) {
-      fetch(`https://altexchangerateapi.herokuapp.com/${startDate}..${endDate}?from=${baseCurrency}&to=${quoteCurrency}`)
+      fetch(`https://api.frankfurter.app/${startDate}..${endDate}?from=${baseCurrency}&to=${quoteCurrency}`)
       .then(checkStatus)
       .then(json)
       .then(data => {

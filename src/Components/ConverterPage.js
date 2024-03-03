@@ -64,7 +64,7 @@ const ConverterPage = () => {
     }
     else {
       $('#diff-currencies').addClass('visually-hidden');
-      fetch(`https://altexchangerateapi.herokuapp.com/latest?amount=${buttonPress}&from=${currencyIn}&to=${currencyOut}`)
+      fetch(`https://api.frankfurter.app/latest?amount=${buttonPress}&from=${currencyIn}&to=${currencyOut}`)
       .then(checkStatus)
       .then(json)
       .then((data) => {

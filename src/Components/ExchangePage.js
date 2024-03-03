@@ -12,7 +12,7 @@ const ExchangePage = () => {
 
   // request for exchange rates and updating state
   const fetchRates = () => {
-    fetch(`https://altexchangerateapi.herokuapp.com/latest?from=${base}`)
+    fetch(`https://api.frankfurter.app/latest?from=${base}`)
     .then(checkStatus)
     .then(json)
     .then((response) => {

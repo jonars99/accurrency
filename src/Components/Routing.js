@@ -54,7 +54,7 @@ const Routing = () => {
           <div className="col-12 d-flex flex-column flex-md-row justify-content-evenly justify-content-md-between px-md-5 px-xl-0">
 
             <a href="https://www.joannaredihough.com" target="_blank" rel="noreferrer noopener" className="order-2 order-md-1 ms-2 my-2">
-              <img src={logo} alt="jr logo" width="30"></img> built by Joanna
+              <img src={logo} alt="joanna redihough logo" width="30"></img>
             </a>
 
             <div className="d-flex align-self-center footer-brand order-1 order-md-2 pb-3">
@@ -65,7 +65,7 @@ const Routing = () => {
             </div>
 
             <div className="d-flex order-3 my-2 me-3">
-              <a href="https://www.linkedin.com/in/joanna-redihough-profile/" target="_blank" className="ms-3">
+              <a href="https://www.linkedin.com/in/joannaredihough/" target="_blank" className="ms-3">
                 <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
               </a>
               <a href="https://github.com/jonars99" target="_blank" className="ms-3">
