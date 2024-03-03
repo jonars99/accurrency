@@ -2,7 +2,7 @@
 ### A currency converter and exchange rates web app
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bed3ec5b-ba78-4d62-a581-c205b98386b6/deploy-status)](https://app.netlify.com/sites/accurrency-jr/deploys)
-Check it out -> [accurrency](https://accurrency-jr.netlify.app/)  
+ Check it out -> [accurrency](https://accurrency-jr.netlify.app/)  
 
 Currency and exchange rate data provided via open source **FrankfurterAPI** -> [documentation](https://www.frankfurter.app/docs/)  
 
